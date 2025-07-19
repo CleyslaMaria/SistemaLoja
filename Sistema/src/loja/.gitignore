@@ -1,0 +1,6 @@
+# Ignora pastas de compilação
+/bin/
+/out/
+
+# Ignora arquivos compilados do Java
+*.class
