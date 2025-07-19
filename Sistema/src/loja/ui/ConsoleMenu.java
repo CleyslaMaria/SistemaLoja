@@ -1,1 +1,1 @@
-package loja;
+package loja.ui;
