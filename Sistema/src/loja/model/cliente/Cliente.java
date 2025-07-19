@@ -1,16 +1,18 @@
 package loja.model.cliente;
 
 
-public abstract class Cliente{
+public abstract class Cliente {
     private String id;
     private String nome;
+    private String endereco;
+    private String telefone;
 
-
-    public Cliente(String id, String nome) {
+    public Cliente(String id, String nome, String endereco, String telefone) {
         this.id = id;
         this.nome = nome;
+        this.endereco = endereco;
+        this.telefone = telefone;
     }
-
 
     public String getId() {
         return id;
@@ -20,8 +22,15 @@ public abstract class Cliente{
         return nome;
     }
 
-    
-    public void setid(String id) { 
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,5 +38,12 @@ public abstract class Cliente{
         this.nome = nome;
     }
 
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 }
 
