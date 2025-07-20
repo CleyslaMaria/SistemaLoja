@@ -12,11 +12,11 @@ public class ProdutoPerecivel extends Produto {
         this.validade = validade;
     }
 
-    public LocalDate getvalidade() {
+    public LocalDate getValidade() {
         return validade;
     }
 
-    public void setvalidade(LocalDate validade) {
+    public void setValidade(LocalDate validade) {
         this.validade = validade;
     }
 
