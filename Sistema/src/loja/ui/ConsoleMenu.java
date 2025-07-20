@@ -1,7 +1,5 @@
 package loja.ui;
 
-import java.util.Scanner;
-
 public class ConsoleMenu {
 
     public void exibirMenu() {
