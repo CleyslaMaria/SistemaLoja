@@ -50,7 +50,7 @@ public class InputUtils {
 
     public static LocalDateTime lerDataHora(String mensagem) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        System.out.print(mensagem + " (formato dd/MM/yyyy HH:mm): ");
+        System.out.print(mensagem + " (formato dd/MM/yyyy HH:mm) "); //atentar aq
         while (true) {
             String entrada = scanner.nextLine().trim();
             try {
