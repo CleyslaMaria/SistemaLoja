@@ -8,7 +8,7 @@ public class InputUtils {
     public static int lerInt(String mensagem) {
         System.out.print(mensagem);
         while (!scanner.hasNextInt()) {
-            System.out.println("Digite um número válido: ");
+            System.out.println("Digite um numero valido: ");
             scanner.next(); 
         }
         return scanner.nextInt();
