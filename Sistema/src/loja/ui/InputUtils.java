@@ -1,5 +1,9 @@
 package loja.ui;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
 public class InputUtils {
@@ -8,16 +12,58 @@ public class InputUtils {
     public static int lerInt(String mensagem) {
         System.out.print(mensagem);
         while (!scanner.hasNextInt()) {
-            System.out.println("Digite um numero valido: ");
-            scanner.next(); 
+            System.out.println("Digite um inteiro valido: ");
+            scanner.next();
         }
-        return scanner.nextInt();
+        int valor = scanner.nextInt();
+        scanner.nextLine(); 
+        return valor;
+    }
+
+     public static double lerDouble(String mensagem) {
+        System.out.print(mensagem);
+        while (!scanner.hasNextDouble()) {
+            System.out.println("Digite um numero decimal valido: ");
+            scanner.next();
+        }
+        double valor = scanner.nextDouble();
+        scanner.nextLine();
+        return valor;
     }
 
     public static String lerString(String mensagem) {
         System.out.print(mensagem);
-        return scanner.next();
+        return scanner.nextLine();
     }
 
-   
+    public static BigDecimal lerBigDecimal(String mensagem) {
+        System.out.print(mensagem);
+        while (true) {
+            String entrada = scanner.nextLine().trim().replace(",", ".");
+            try {
+                return new BigDecimal(entrada);
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um numero decimal valido. Exemplo: 19.99 ou 19,99");
+            }
+        }
+    }
+
+    public static LocalDateTime lerDataHora(String mensagem) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        System.out.print(mensagem + " (formato dd/MM/yyyy HH:mm): ");
+        while (true) {
+            String entrada = scanner.nextLine().trim();
+            try {
+                return LocalDateTime.parse(entrada, formato);
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato invalido. Exemplo: 20/07/2025 14:30");
+                
+            }
+        }
+    }
+
+    public static void fecharScanner() {
+        scanner.close();
+    }
 }
+
