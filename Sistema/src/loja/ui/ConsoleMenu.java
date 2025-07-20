@@ -22,37 +22,28 @@ public class ConsoleMenu {
             opcao = scanner.nextInt();
             scanner.nextLine(); 
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Cadastrar Produto");
-                    break;
-                case 2:
-                    System.out.println("Alterar Produto");
-                    break;
-                case 3:
-                    System.out.println("Cadastrar Cliente");
-                    break;
-                case 4:
-                    System.out.println("Alterar Cliente");
-                    break;
-                case 5:
-                    System.out.println("Criar Nota de Compra");
-                    break;
-                case 6:
-                    System.out.println("Listar Notas Emitidas");
-                    break;
-                case 7:
-                    System.out.println("Listar Produtos");
-                    break;
-                case 8:
-                    System.out.println("Listar Clientes");
-                    break;
-                case 0:
-                    System.out.println("Saindo");
-                    break;
-                default:
-                    System.out.println("Opcao invalida. Tente novamente.");
+            if (opcao == 1) {
+                System.out.println("Cadastrar Produto");
+            } else if (opcao == 2) {
+                System.out.println("Alterar Produto");
+            } else if (opcao == 3) {
+                System.out.println("Cadastrar Cliente");
+            } else if (opcao == 4) {
+                System.out.println("Alterar Cliente");
+            } else if (opcao == 5) {
+                System.out.println("Criar Nota de Compra");
+            } else if (opcao == 6) {
+                System.out.println("Listar Notas Emitidas");
+            } else if (opcao == 7) {
+                System.out.println("Listar Produtos");
+            } else if (opcao == 8) {
+                System.out.println("Listar Clientes");
+            } else if (opcao == 0) {
+                System.out.println("Saindo");
+            } else {
+                System.out.println("Opcao invalida. Tente novamente.");
             }
+
         } while (opcao != 0);
 
         scanner.close();
