@@ -43,7 +43,7 @@ public class InputUtils {
             try {
                 return new BigDecimal(entrada);
             } catch (NumberFormatException e) {
-                System.out.println("Digite um numero decimal valido. Exemplo: 19.99 ou 19,99");
+                System.out.println("Formato invalido. Exemplo: 19.99 ou 19,99");
             }
         }
     }
