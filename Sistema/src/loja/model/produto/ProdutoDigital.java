@@ -14,7 +14,7 @@ public class ProdutoDigital extends Produto {
         return tamanhoMB;
     }
 
-    public void setTamanhoDownloadMB(double tamanhoMB) {
+    public void setTamanhoMB(double tamanhoMB) {
         this.tamanhoMB = tamanhoMB;
     }
 }
