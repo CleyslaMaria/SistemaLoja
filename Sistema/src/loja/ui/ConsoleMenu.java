@@ -92,6 +92,7 @@ public class ConsoleMenu {
         } else {
             System.out.println("Tipo de produto inválido");
             return;
+
         }
 
         // Armazena no array, se ainda houver espaço
@@ -155,7 +156,7 @@ public class ConsoleMenu {
             System.out.println("Tamanho de download alterado com sucesso!");
         }else if(opcaoAlteracao == 3 && produtoEncontrado instanceof ProdutoPerecivel){
             LocalDate novoValidade = InputUtils.lerLocalDate("Nova validade: ");
-            p((ProdutoPerecivel)produtoEncontrado).setValidade(novoValidade);
+            ((ProdutoPerecivel)produtoEncontrado).setValidade(novoValidade);
             System.out.println("Validade alterada com sucesso!");
         }else{
             System.out.println("Opção inválida.");
@@ -316,11 +317,10 @@ public class ConsoleMenu {
                     System.out.println("CPF: " + pf.getCpf());
                 } else if (p instanceof PessoaJuridica){
                     PessoaJuridica pj = (PessoaJuridica) p;
-                    System.out.println("CNPJ: " + pd.getCnpj());
+                    System.out.println("CNPJ: " + pj.getCnpj());
                 }
 
             }
         }
     }
-
 }
