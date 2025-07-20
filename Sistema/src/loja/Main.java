@@ -10,7 +10,7 @@ public class Main {
 
         ConsoleMenu.exibirMenu();
 
-        InputUtils.closeScanner();
+        InputUtils.fecharScanner();
 
         System.out.println("Programa encerrado.");
     }
