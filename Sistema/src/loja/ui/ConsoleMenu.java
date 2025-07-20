@@ -17,41 +17,41 @@ public class ConsoleMenu {
             System.out.println("7. Listar Produtos");
             System.out.println("8. Listar Clientes");
             System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opcao: ");
 
             opcao = scanner.nextInt();
             scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Cadastrar Produto...");
+                    System.out.println("Cadastrar Produto");
                     break;
                 case 2:
-                    System.out.println("Alterar Produto...");
+                    System.out.println("Alterar Produto");
                     break;
                 case 3:
-                    System.out.println("Cadastrar Cliente...");
+                    System.out.println("Cadastrar Cliente");
                     break;
                 case 4:
-                    System.out.println("Alterar Cliente...");
+                    System.out.println("Alterar Cliente");
                     break;
                 case 5:
-                    System.out.println("Criar Nota de Compra...");
+                    System.out.println("Criar Nota de Compra");
                     break;
                 case 6:
-                    System.out.println("Listar Notas Emitidas...");
+                    System.out.println("Listar Notas Emitidas");
                     break;
                 case 7:
-                    System.out.println("Listar Produtos...");
+                    System.out.println("Listar Produtos");
                     break;
                 case 8:
-                    System.out.println("Listar Clientes...");
+                    System.out.println("Listar Clientes");
                     break;
                 case 0:
-                    System.out.println("Saindo...");
+                    System.out.println("Saindo");
                     break;
                 default:
-                    System.out.println("Opção inválida. Tente novamente.");
+                    System.out.println("Opcao invalida. Tente novamente.");
             }
         } while (opcao != 0);
 
