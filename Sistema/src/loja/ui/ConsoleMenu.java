@@ -7,7 +7,7 @@ public class ConsoleMenu {
         int opcao;
 
         do {
-            System.out.println("\n===== Menu Principal =====");
+            System.out.println("\n===== Menu Principal =====\n");
             System.out.println("1. Cadastrar Produto");
             System.out.println("2. Alterar Produto");
             System.out.println("3. Cadastrar Cliente");
