@@ -56,7 +56,7 @@ public class InputUtils {
             try {
                 return LocalDateTime.parse(entrada, formato);
             } catch (DateTimeParseException e) {
-                System.out.println("Formato invalido. Exemplo: 20/07/2025 14:30");
+                System.out.println("Formato invalido. Exemplo: 16/05/1472 14:30");
                 
             }
         }
