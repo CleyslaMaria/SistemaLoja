@@ -2,40 +2,43 @@
 package loja.model.nota;
 import loja.model.cliente.Cliente;
 import java.time.LocalDateTime;
-import java.util.ArrayList;  // Para armazenar os itens
-import java.util.List; 
-import java.util.UUID;      // Gera um ID único para a nota
 import java.math.BigDecimal;
 
 public class NotaCompra {
+    private static int gerarId = 1;
     private String idNota;
     private LocalDateTimeing data;
     private Cliente cliente;                
-    private List <ItemNota> itens; itens;  // Lista de produtos comprados
+    private ItemNota[] itens;  
+    private int quantidadeItens;
 
     public NotaCompra(Cliente cliente) {
-        this.idNota = UUID.randomUUID().toString();
+        this.idNota = "x" + gerarId++;
         this.data = LocalDateTime.now();
         this.cliente = cliente;
-        this.itens = new ArrayList<>();   
+        this.itens = new ItemNota[100];
+        this.quantidadeItens = 0;
     }
 
-       // Adiciona um item à nota
+       // Adiciona um item
     public void adicionarItem(String nomeProduto, int quantidade, BigDecimal precoUnidade) {
-        ItemNota item = new ItemNota(nomeProduto, quantidade, precoUnidade);
-        itens.add(item);
+        if (quantidadeItens < itens.length) {
+            itens[quantidadeItens] = new ItemNota(nomeProduto, quantidade, precoUnidade);
+            quantidadeItens++;
+        } 
+
     }
 
       // Soma os subtotais de todos os itens
     public BigDecimal calcularTotal() {
         BigDecimal total = BigDecimal.ZERO;
-        for (ItemNota : itens) {
-            total = total.add(item.getSubtotal());
+        for (int i = 0; i < quantidadeItens; i++) {
+            total = total.add(itens[1].getSubtotal());
         }
         return total;
     }
 
-    // Exibe um resumo da nota
+    // Mostra o resumo da nota
     public void resumoNota() (
         System.out.println("===== NOTA DE COMPRA =====");
         System.out.println("ID: " + idNota);
@@ -44,7 +47,7 @@ public class NotaCompra {
         System.out.println("Endereço: " + cliente.getEndereco());
         System.out.println("Telefone: " + cliente.getTelefone());
         System.out.println("===========================");
-        for (ItemNota item : itens) {
+        for (int i = 0; i < quantidadeItens; i++) {
             System.out.printf("Produto: %-15s Qtd: %d | Unit: R$ %.2f | Subtotal: R$ %.2f%n",
                 item.getNomeProduto(),
                 item.getQuantidade(),
