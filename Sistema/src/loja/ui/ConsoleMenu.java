@@ -408,7 +408,7 @@ private static void criarNotaDeCompra() {
     }
     int idxCli = InputUtils.lerInt("Escolha o indice do cliente: ");
     if (idxCli < 0 || idxCli >= quantidadeClientes) {
-        System.out.println("Indice invalido!");
+        System.out.println("Indice invalido");
         return;
     }
 
