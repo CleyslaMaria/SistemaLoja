@@ -418,7 +418,7 @@ private static void criarNotaDeCompra() {
     boolean continuar = true;
     while (continuar) {
         listarProdutos();
-        String cod = InputUtils.lerString("Codigo do produto (ou 'fim' para encerrar): ");
+        String cod = InputUtils.lerString("Codigo do produto (ou fim para encerrar): ");
         if (cod.equalsIgnoreCase("fim")) break;
 
         Produto pEscolhido = null;
@@ -435,12 +435,12 @@ private static void criarNotaDeCompra() {
 
         int qtd = InputUtils.lerInt("Quantidade: ");
         if (qtd <= 0) {
-            System.out.println("Quantidade invalida!");
+            System.out.println("Quantidade invalida");
             continue;
         }
 
         nota.adicionarItem(pEscolhido.getNome(), qtd, pEscolhido.getPrecoBase());
-        System.out.println("Item adicionado!");
+        System.out.println("Item adicionado");
 
         String resp = InputUtils.lerString("Adicionar mais itens? (s/n): ");
         if (!resp.equalsIgnoreCase("s")) continuar = false;
@@ -452,3 +452,15 @@ private static void criarNotaDeCompra() {
 
     nota.resumoNota();
 }
+
+private static void listarNotasEmitidas() {
+    System.out.println("\n=== Notas Emitidas ===");
+    if (quantidadeNotas == 0) {
+        System.out.println("Nenhuma nota emitida");
+        return;
+    }
+    for (int i = 0; i < quantidadeNotas; i++) {
+        notas[i].resumoNota();
+    }
+}
+
