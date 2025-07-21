@@ -10,6 +10,8 @@ import loja.model.produto.Produto;
 import loja.model.produto.ProdutoDigital;
 import loja.model.produto.ProdutoFisico;
 import loja.model.produto.ProdutoPerecivel;
+import loja.model.nota.Nota;
+import loja.model.nota.ItemNota;
 import loja.ui.InputUtils;
 
 
