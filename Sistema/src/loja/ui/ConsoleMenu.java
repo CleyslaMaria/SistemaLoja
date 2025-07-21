@@ -324,3 +324,66 @@ public class ConsoleMenu {
         }
     }
 }
+
+public class SistemaNota {
+    private static Cliente[] clientes;
+    private static int quantidadeClientes;
+    private static Produto[] produtos;
+    private static int quantidadeProdutos;
+
+    public static void criarNota() {
+        System.out.println("\n======= Criar Nota =======");
+
+        if (quantidadeClientes == 0) {
+            System.out.println("Nenhum cliente cadastrado");
+            return;
+        }
+
+        // Lista de clientes
+        System.out.println("===== Clientes Cadastrados =====");
+        for (int i = 0; i < quantidadeClientes; i++) {
+            System.out.println((i + 1) + " - " + clientes[i].getNome() + " - ID: " + clientes[i].getId());
+        }
+
+        int opcaoCliente = InputUtils.lerInt("Escolha o número do cliente: ");
+        if (opcaoCliente < 1 || opcaoCliente > quantidadeClientes) {
+            System.out.println("Cliente inválido");
+            return;
+        }
+
+        Cliente clienteSelecionado = clientes[opcaoCliente - 1];
+        NotaCompra nota = new NotaCompra(clienteSelecionado);
+
+        while (true) {
+            listarProdutos();
+
+            String cod = InputUtils.lerString("Digite o código do produto (ou 'fim' para encerrar): ");
+            if (cod.equalsIgnoreCase("fim")) {
+                break;
+            }
+
+            Produto produtoSelecionado = null;
+            for (int i = 0; i < quantidadeProdutos; i++) {
+                if (produtos[i].getCodigo().equalsIgnoreCase(cod)) {
+                    produtoSelecionado = produtos[i];
+                    break;
+                }
+            }
+
+            if (produtoSelecionado == null) {
+                System.out.println("Produto não encontrado!");
+                continue;
+            }
+
+            int qtd = InputUtils.lerInt("Digite a quantidade: ");
+            if (qtd <= 0) {
+            System.out.println("Quantidade inválida.");
+            continue;
+        }
+
+        nota.adicionarItem(produtoSelecionado.getNome(), qtd, produtoSelecionado.getPrecoBase());
+        System.out.println("Produto adicionado");
+
+        nota.resumoNota();
+    }
+}
