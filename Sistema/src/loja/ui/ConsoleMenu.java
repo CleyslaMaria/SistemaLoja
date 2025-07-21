@@ -392,7 +392,7 @@ public class SistemaNota {
     }
 }
 
-// NOTA FISCAL
+// CRIAR NOTA FISCAL
 
 private static void criarNotaDeCompra() {
     System.out.println("\n=== Criar Nota ===");
@@ -453,6 +453,7 @@ private static void criarNotaDeCompra() {
     nota.resumoNota();
 }
 
+// LISTAR NOTAS EMITIDAS 
 private static void listarNotasEmitidas() {
     System.out.println("\n=== Notas Emitidas ===");
     if (quantidadeNotas == 0) {
