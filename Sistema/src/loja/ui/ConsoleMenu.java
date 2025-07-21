@@ -391,3 +391,64 @@ public class SistemaNota {
         nota.resumoNota();
     }
 }
+
+// NOTA FISCAL
+
+private static void criarNotaDeCompra() {
+    System.out.println("\n=== Criar Nota ===");
+
+    if (quantidadeClientes == 0 || quantidadeProdutos == 0) {
+        System.out.println("É necessario ter ao menos um cliente e um produto cadastrados");
+        return;
+    }
+
+    System.out.println("\nClientes cadastrados:");
+    for (int i = 0; i < quantidadeClientes; i++) {
+        System.out.println(i + " - " + clientes[i].getNome() + " (ID: " + clientes[i].getId() + ")");
+    }
+    int idxCli = InputUtils.lerInt("Escolha o indice do cliente: ");
+    if (idxCli < 0 || idxCli >= quantidadeClientes) {
+        System.out.println("Indice invalido!");
+        return;
+    }
+
+    Cliente clienteEscolhido = clientes[idxCli];
+    NotaCompra nota = new NotaCompra(clienteEscolhido);
+
+    boolean continuar = true;
+    while (continuar) {
+        listarProdutos();
+        String cod = InputUtils.lerString("Codigo do produto (ou 'fim' para encerrar): ");
+        if (cod.equalsIgnoreCase("fim")) break;
+
+        Produto pEscolhido = null;
+        for (int i = 0; i < quantidadeProdutos; i++) {
+            if (produtos[i].getCodigo().equals(cod)) {
+                pEscolhido = produtos[i];
+                break;
+            }
+        }
+        if (pEscolhido == null) {
+            System.out.println("Produto nao encontrado");
+            continue;
+        }
+
+        int qtd = InputUtils.lerInt("Quantidade: ");
+        if (qtd <= 0) {
+            System.out.println("Quantidade invalida!");
+            continue;
+        }
+
+        nota.adicionarItem(pEscolhido.getNome(), qtd, pEscolhido.getPrecoBase());
+        System.out.println("Item adicionado!");
+
+        String resp = InputUtils.lerString("Adicionar mais itens? (s/n): ");
+        if (!resp.equalsIgnoreCase("s")) continuar = false;
+    }
+
+    if (quantidadeNotas < notas.length) {
+        notas[quantidadeNotas++] = nota;
+    }
+
+    nota.resumoNota();
+}
