@@ -20,6 +20,8 @@ public class ConsoleMenu {
     private static int quantidadeProdutos = 0; // Contador de produtos cadastrados
     private static Cliente[] clientes = new Cliente[100]; // Array para armazenar os clientes
     private static int quantidadeClientes = 0; // Contador de clientes cadastrados
+    private static NotaCompra[] notas = new Nota[100]; // Array para armazenar as notas
+    private static int quantidadeNotas = 0; // Contador de notas cadastradas
 
 
     public static void exibirMenu() {
