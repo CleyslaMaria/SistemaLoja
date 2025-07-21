@@ -1,4 +1,3 @@
-// Nota
 package loja.model.nota;
 import loja.model.cliente.Cliente;
 import java.time.LocalDateTime;
@@ -7,7 +6,7 @@ import java.math.BigDecimal;
 public class NotaCompra {
     private static int gerarId = 1;
     private String idNota;
-    private LocalDateTimeing data;
+    private LocalDateTime data;
     private Cliente cliente;                
     private ItemNota[] itens;  
     private int quantidadeItens;
@@ -33,12 +32,12 @@ public class NotaCompra {
     public BigDecimal calcularTotal() {
         BigDecimal total = BigDecimal.ZERO;
         for (int i = 0; i < quantidadeItens; i++) {
-            total = total.add(itens[1].getSubtotal());
+            total = total.add(itens[i].getSubtotal());
         }
         return total;
     }
 
-    // Mostra o resumo da nota
+    // Resumo da nota
     public void resumoNota() (
         System.out.println("===== NOTA DE COMPRA =====");
         System.out.println("ID: " + idNota);
@@ -47,17 +46,18 @@ public class NotaCompra {
         System.out.println("Endereço: " + cliente.getEndereco());
         System.out.println("Telefone: " + cliente.getTelefone());
         System.out.println("===========================");
-        for (int i = 0; i < quantidadeItens; i++) {
-            System.out.printf("Produto: %-15s Qtd: %d | Unit: R$ %.2f | Subtotal: R$ %.2f%n",
-                item.getNomeProduto(),
-                item.getQuantidade(),
-                item.getPrecoUnidade(),
-                item.getSubtotal());
 
+        for (int i = 0; i < quantidadeItens; i++) {
+            ItemNota item = itens[i];
+            System.out.println(item.getNomeProduto() +
+                               " | Qtd: " + item.getQuantidade() +
+                               " | Unidade: R$ " + item.getPrecoUnidade() +
+                               " | Subtotal: R$ " + item.getSubtotal());
         }
 
-        System.out.println("=========================");
-        System.out.printf("TOTAL: R$ %.2f%n", calcularTotal());
+        System.out.println("========================");
+        System.out.println("TOTAL: R$ " + calcularTotal());
+    }
         System.out.println("==========================");
     )
 }
