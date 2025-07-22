@@ -1,16 +1,8 @@
-COMANDOS GIT
+Mini Projeto: Sistema de Loja com Emissão de Nota de Compra
 
-- Para salvar e enviar mudanças para o GitHub
-git add .
-git commit -m "implementação do cadastro de produtos"
-git push origin cadastro-produto
+Turma 01 - Programação Orientada a Objetos 
 
-- Para criar uma nova branch
-git checkout -b cadastro-produtos
-
-- Antes de começar a programar
-git checkout main
-git pull origin main
-
-- Mescle a branch principal na sua branch
-git merge main # ou master
+Membros:
+Cleysla Maria Santos Ferreira
+José Gabriel Silva Santana
+Maria Aparecida Nascimento dos Santos
