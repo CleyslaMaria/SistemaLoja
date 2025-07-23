@@ -11,7 +11,7 @@ Maria Aparecida Nascimento dos Santos
 
 No nosso projeto, utilizamos a ferramenta 'upcast' para armazenar objetos das subclasses NotaFiscalProduto e NotaFiscalServico em listas ou variáveis do tipo NotaFiscal, permitindo, assim, tratar diferentes tipos de nota de forma genérica e simples.
 
-Exemplo: "notas[quantidadeNotas] = new NotaFiscalProduto(...); "
+Exemplo: "notas[quantidadeNotas] = new NotaFiscalProduto(...); " <br/>
 Aqui, estamos colocando um objeto da subclasse (NotaFiscalProduto) dentro de uma variável do tipo da superclasse (NotaFiscal) porque queremos guardar qualquer tipo de nota (produto ou serviço) num único array. Só conseguimos isso se usarmos a superclasse como tipo base (NotaFiscal[]), já que ela é comum a todas as subclasses.
 
 ---
