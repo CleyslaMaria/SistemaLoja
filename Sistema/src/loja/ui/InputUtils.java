@@ -38,7 +38,7 @@ public class InputUtils {
         System.out.print(mensagem);
         entrada = scanner.nextLine().trim();
         if (entrada.isEmpty()) {
-            System.out.println("A entrada nao pode estar vazia. Tente novamente.");
+            System.out.println("Digite uma entrada valida. Tente novamente.");
         }
     } while (entrada.isEmpty());
     return entrada;
