@@ -14,7 +14,6 @@ import loja.model.nota.Nota;
 import loja.model.nota.ItemNota;
 import loja.ui.InputUtils;
 
-
 public class ConsoleMenu {
     private static Produto[] produtos = new Produto[100]; 
     private static int quantidadeProdutos = 0; 
@@ -144,8 +143,6 @@ public class ConsoleMenu {
             System.out.println("Nenhum produto cadastrado.");
             return;
         }
-
-        // Listar produtos cadastrados, agrupando por tipo
         System.out.println("=== Produtos Físicos ===");
         boolean temFisico = false;
         for (int i = 0; i < quantidadeProdutos; i++) {
@@ -543,10 +540,7 @@ public class ConsoleMenu {
                     PessoaJuridica pj = (PessoaJuridica) p;
                     System.out.println("CNPJ: " + pj.getCnpj());
                 }
-
             }
         }
-
     }
-
 }
