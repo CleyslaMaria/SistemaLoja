@@ -19,9 +19,9 @@ Aqui, estamos colocando um objeto da subclasse (NotaFiscalProduto) dentro de uma
 
 Já a ferramenta 'downcast' é usado quando precisamos acessar comportamentos ou informações específicas de uma subclasse, sendo necessário converter manualmente a referência da superclasse de volta para a subclasse original.
 
-Exemplo: if (nota instanceof NotaFiscalProduto) {
-    NotaFiscalProduto nfProduto = (NotaFiscalProduto) nota;
-    
+Exemplo: if (nota instanceof NotaFiscalProduto) { <br/>
+    NotaFiscalProduto nfProduto = (NotaFiscalProduto) nota;<br/>
+    <br/>
 }
 
 Estamos verificando se a nota é mesmo do tipo NotaFiscalProduto, e então fazemos um downcast para acessar os métodos exclusivos dela porque o tipo NotaFiscal não conhece os métodos das subclasses. Para usá-los, precisamos converter (fazer o cast) de volta para o tipo real da nota.
