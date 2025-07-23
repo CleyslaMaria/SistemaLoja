@@ -18,7 +18,7 @@ Já a ferramenta 'downcast' é usado quando precisamos acessar comportamentos ou
 
 Exemplo: if (nota instanceof NotaFiscalProduto) {
     NotaFiscalProduto nfProduto = (NotaFiscalProduto) nota;
-    System.out.println(nfProduto.getDescricaoProduto());
+    
 }
 
 Estamos verificando se a nota é mesmo do tipo NotaFiscalProduto, e então fazemos um downcast para acessar os métodos exclusivos dela porque o tipo NotaFiscal não conhece os métodos das subclasses. Para usá-los, precisamos converter (fazer o cast) de volta para o tipo real da nota.
