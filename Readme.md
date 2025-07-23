@@ -1,11 +1,13 @@
 # Mini Projeto: Sistema de Loja com Emissão de Nota de Compra
 
-Turma 01 - Programação Orientada a Objetos 
+--- Turma 01 - Programação Orientada a Objetos 
 
-Membros:
+--- Membros:
 Cleysla Maria Santos Ferreira,
 José Gabriel Silva Santana &
 Maria Aparecida Nascimento dos Santos
+
+# Uso das ferramentas 'upcast' e 'downcast'
 
 No nosso projeto, utilizamos a ferramenta 'upcast' para armazenar objetos das subclasses NotaFiscalProduto e NotaFiscalServico em listas ou variáveis do tipo NotaFiscal, permitindo, assim, tratar diferentes tipos de nota de forma genérica e simples.
 
