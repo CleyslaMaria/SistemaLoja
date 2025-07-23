@@ -14,6 +14,8 @@ No nosso projeto, utilizamos a ferramenta 'upcast' para armazenar objetos das su
 Exemplo: "notas[quantidadeNotas] = new NotaFiscalProduto(...); "
 Aqui, estamos colocando um objeto da subclasse (NotaFiscalProduto) dentro de uma variável do tipo da superclasse (NotaFiscal) porque queremos guardar qualquer tipo de nota (produto ou serviço) num único array. Só conseguimos isso se usarmos a superclasse como tipo base (NotaFiscal[]), já que ela é comum a todas as subclasses.
 
+---
+
 Já a ferramenta 'downcast' é usado quando precisamos acessar comportamentos ou informações específicas de uma subclasse, sendo necessário converter manualmente a referência da superclasse de volta para a subclasse original.
 
 Exemplo: if (nota instanceof NotaFiscalProduto) {
