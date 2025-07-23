@@ -3,8 +3,7 @@ package loja.ui;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+
 import java.util.Scanner;
 
 public class InputUtils {
@@ -67,6 +66,7 @@ public class InputUtils {
 
 
     public static LocalDate lerLocalDate(String mensagem) {
+
     System.out.print(mensagem + " (formato dd/MM/yyyy): ");
     while (true) {
         String entrada = scanner.nextLine().trim();
