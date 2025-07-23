@@ -14,6 +14,7 @@ import loja.model.nota.Nota;
 import loja.model.nota.ItemNota;
 import loja.ui.InputUtils;
 
+
 public class ConsoleMenu {
     private static Produto[] produtos = new Produto[100]; 
     private static int quantidadeProdutos = 0; 
@@ -39,7 +40,7 @@ public class ConsoleMenu {
             System.out.println("8. Listar Clientes");
             System.out.println("0. Sair");
 
-            opcao = InputUtils.lerInt("Escolha uma opção: ");
+            opcao = InputUtils.lerInt("Escolha uma opção:");
 
             if (opcao == 1) {
                 cadastrarProduto();
@@ -77,13 +78,11 @@ public class ConsoleMenu {
         System.out.println("2 - Kit de Pincéis de Maquiagem");
         System.out.println("3 - Chapinha Elétrica");
         System.out.println("4 - Escova de Cabelo Profissional");
-
         System.out.println("=== Produtos Perecíveis ===");
         System.out.println("5 - Creme Hidratante");
         System.out.println("6 - Tônico Facial Natural");
         System.out.println("7 - Shampoo Anticaspa");
         System.out.println("8 - Máscara de Argila");
-
         System.out.println("=== Produtos Digitais ===");
         System.out.println("9 - Voucher de Spa Facial");
         System.out.println("10 - Curso de Automaquiagem Online");
@@ -129,7 +128,7 @@ public class ConsoleMenu {
             if (quantidadeProdutos < produtos.length) {
                 produtos[quantidadeProdutos] = novoProduto;
                 quantidadeProdutos++;
-                System.out.println("\nProduto cadastrado com sucesso: " + novoProduto.getNome());
+                System.out.println("Produto cadastrado com sucesso: " + novoProduto.getNome());
             } else {
                 System.out.println("Não é possível cadastrar mais produtos. Limite atingido.");
             }
@@ -139,6 +138,7 @@ public class ConsoleMenu {
 
     // OPÇÃO 2 - ALTERAR PRODUTO
     private static void alterarProduto() {
+        System.out.println("\n== Alterar Produto ==");
         if (quantidadeProdutos == 0) {
             System.out.println("Nenhum produto cadastrado.");
             return;
@@ -197,7 +197,6 @@ public class ConsoleMenu {
         System.out.println("Código: " + produtoEncontrado.getCodigo());
         System.out.println("Nome: " + produtoEncontrado.getNome());
         System.out.println("Preço: R$ " + produtoEncontrado.getPrecoBase());
-
         if (produtoEncontrado instanceof ProdutoFisico) {
             ProdutoFisico pf = (ProdutoFisico) produtoEncontrado;
             System.out.println("Estoque: " + pf.getEstoque());
@@ -212,11 +211,11 @@ public class ConsoleMenu {
         System.out.println("1.Nome");
         System.out.println("2.Preço");
         if(produtoEncontrado instanceof ProdutoFisico){
-            System.out.println("3. Estoque");
+            System.out.println("3.Estoque");
         } else if(produtoEncontrado instanceof ProdutoDigital){
-            System.out.println("3. tamanho do download em MB");
+            System.out.println("3.tamanho do download em MB");
         } else if(produtoEncontrado instanceof ProdutoPerecivel){
-            System.out.println("3. Data de validade");
+            System.out.println("3.Data de validade");
         }
 
         int opcaoAlteracao = InputUtils.lerInt("\nEscolha a opção: ");
@@ -292,10 +291,37 @@ public class ConsoleMenu {
     // OPÇÃO 4 - ALTERAR CLIENTE
     private static void alterarCliente() {
         System.out.println("\n=== Alterar Cliente ===");
-        String id = InputUtils.lerString("Digite o ID od cliente a ser alterado");
+        if (quantidadeClientes == 0) {
+            System.out.println("Nenhum cliente cadastrado.");
+            return;
+        }
+        System.out.println("=== Pessoa Física ===");
+        boolean temFisica = false;
+        for (int i = 0; i < quantidadeClientes; i++) {
+            if (clientes[i] instanceof PessoaFisica) {
+                System.out.println(clientes[i].getId() + " - " + clientes[i].getNome());
+            temFisica = true;
+            }
+        }
+        if(!temFisica){
+            System.out.println("Nenhum cliente cadastrado.");
+        }
+        
+        System.out.println("\n=== Pessoa Jurídica ===");
+        boolean temJuridica = false;
+        for (int i = 0; i < quantidadeClientes; i++) {
+            if (clientes[i] instanceof PessoaJuridica) {
+                System.out.println(clientes[i].getId() + " - " + clientes[i].getNome());
+            temJuridica = true;
+            }
+        if(!temJuridica){
+            System.out.println("Nenhum cliente cadastrado.");
+        }       
+        }
+        String id = InputUtils.lerString("Digite o ID od cliente a ser alterado:");
 
         Cliente clienteEncontrado = null;
-                        
+
         for(int i = 0; i < quantidadeClientes; i++){
             if(clientes[i] != null && clientes[i].getId().equals(id)){
                 clienteEncontrado = clientes[i];
@@ -308,42 +334,53 @@ public class ConsoleMenu {
             return;
         }
 
-        System.out.println("Cliente encontrado.");
-        System.out.println("O que deseja alterar?");
+        System.out.println("\nCliente encontrado.");
+        System.out.println("ID: " + clienteEncontrado.getId());
+        System.out.println("Nome: " + clienteEncontrado.getNome());
+        System.out.println("Endereço: " + clienteEncontrado.getEndereco());
+        System.out.println("Telefone: " + clienteEncontrado.getTelefone());
+        if (clienteEncontrado instanceof PessoaFisica) {
+            PessoaFisica fisica = (PessoaFisica) clienteEncontrado;
+            System.out.println("CPF: " + fisica.getCpf());
+        } else if (clienteEncontrado instanceof PessoaJuridica) {
+            PessoaJuridica juridica = (PessoaJuridica) clienteEncontrado;
+            System.out.println("CNPJ: " + juridica.getCnpj());
+        }
+        System.out.println("\nO que deseja alterar?");
         System.out.println("1.ID");
         System.out.println("2.Nome");
         System.out.println("3.Endereço");
         System.out.println("4.Telefone");
         if(clienteEncontrado instanceof PessoaFisica){
-            System.out.println("5. CPF");
+            System.out.println("5.CPF");
         } else if(clienteEncontrado instanceof PessoaJuridica){
-            System.out.println("5. CNPJ");
+            System.out.println("5.CNPJ");
         }
 
-        int alteracao = InputUtils.lerInt("Escolha a opção");
+        int alteracao = InputUtils.lerInt("\nEscolha a opção:");
 
         if(alteracao == 1){
-            String novoId = InputUtils.lerString("Novo ID: ");
+            String novoId = InputUtils.lerString("Novo ID:");
             clienteEncontrado.setId(novoId);
             System.out.println("ID alterado com sucesso!");
         }else if(alteracao == 2){
-            String novoNome = InputUtils.lerString("Digite o novo nome");
+            String novoNome = InputUtils.lerString("Digite o novo nome:");
             clienteEncontrado.setNome(novoNome);
             System.out.println("Nome alterado com sucesso!");
         }else if(alteracao == 3){
-            String novoEndereco = InputUtils.lerString("Digite o novo endereço");
+            String novoEndereco = InputUtils.lerString("Digite o novo endereço:");
             clienteEncontrado.setEndereco(novoEndereco);
             System.out.println("Endereço alterado com sucesso!");
         }else if(alteracao == 4){
-            String novoTelefone = InputUtils.lerString("Digite o novo telefone");
+            String novoTelefone = InputUtils.lerString("Digite o novo telefone:");
             clienteEncontrado.setTelefone(novoTelefone);
             System.out.println("Telefone alterado com sucesso!");
         }else if(alteracao == 5 && clienteEncontrado instanceof PessoaFisica){
-            String novoCpf = InputUtils.lerString("Novo CPF: ");
+            String novoCpf = InputUtils.lerString("Novo CPF:");
             ((PessoaFisica)clienteEncontrado).setCpf(novoCpf);
             System.out.println("CPF alterado com sucesso!");
         }else if(alteracao == 5 && clienteEncontrado instanceof PessoaJuridica){
-            String novoCnpj = InputUtils.lerString("Novo CNPJ: ");
+            String novoCnpj = InputUtils.lerString("Novo CNPJ:");
             ((PessoaJuridica)clienteEncontrado).setCnpj(novoCnpj);
             System.out.println("CNPJ alterado com sucesso!");
         }else{
@@ -456,7 +493,7 @@ public class ConsoleMenu {
                 System.out.println("Quantidade invalida");
                 continue;
             }
-
+            
             nota.adicionarItem(pEscolhido.getNome(), qtd, pEscolhido.getPrecoBase());
             System.out.println("Item adicionado");
 
